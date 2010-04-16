@@ -15,6 +15,8 @@
 #
 
 LOCAL_PATH := $(call my-dir)
+
+# Build an easymock.jar to use for host side tests
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
@@ -22,3 +24,13 @@ LOCAL_SRC_FILES := $(call all-java-files-under, src)
 LOCAL_MODULE := easymock
 
 include $(BUILD_HOST_JAVA_LIBRARY)
+
+# Build an easymocklib.jar to use on device
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := $(call all-java-files-under, src)
+
+LOCAL_MODULE := easymocklib
+
+include $(BUILD_STATIC_JAVA_LIBRARY)
+
